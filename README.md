@@ -121,7 +121,7 @@ Body JSON:
   "password": "password123"
 }
 
- E. Get User by ID (Protected)
+ E. Get User by ID (Harus menggunakan Token)
 
 Endpoint: GET /api/users/{id}
 
@@ -130,7 +130,7 @@ Deskripsi: Mendapatkan detail user berdasarkan ID
 Header:
 Authorization: Bearer <token>
 
- F. Update User by ID (Protected)
+ F. Update User by ID (Harus menggunakan Token)
 Endpoint: PUT /api/users/{id}
 
 Deskripsi: Mengupdate data user berdasarkan ID
@@ -146,7 +146,7 @@ Body JSON:
   "password": "newpassword123"
 }
 
- G. Delete User by ID (Protected)
+ G. Delete User by ID (Harus menggunakan Token)
 Endpoint: DELETE /api/users/{id}
 
 Deskripsi: Menghapus user berdasarkan ID
@@ -188,6 +188,6 @@ services:
 volumes:
   pgdata:
 
----
+ 
 
 
