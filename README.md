@@ -4,6 +4,36 @@ Mini project RESTful API menggunakan Golang 1.23, PostgreSQL, dan JWT Authentica
 
 ---
 
+## Desain Arsitektur
+
+### Struktur Folder
+- `controllers/` → Menangani request & logic
+- `config/` → Inisialisasi database (PostgreSQL) dan konfigurasi global lainnya.
+- `models/` → Struktur data & GORM
+- `routes/` → Definisi endpoint
+- `middlewares/` → Middleware untuk JWT
+- `utils/` → Utility seperti JWT handler
+
+### Flow Login & JWT
+- User melakukan login → token dikembalikan
+- Endpoint tertentu dilindungi dengan JWT middleware
+
+### Endpoint & Method
+| Endpoint          | Method | Keterangan               |
+|-------------------|--------|--------------------------|
+| `/register`       | POST   | Register user            |
+| `/login`          | POST   | Login dan dapatkan token |
+| `/users`          | GET    | Ambil semua user         |
+| `/api/users/:id`  | GET    | Ambil user by ID         |
+| `/api/users/:id`  | PUT    | Update user              |
+| `/api/users/:id`  | DELETE | Hapus user               |
+
+### Database Design
+- Tabel: `users`
+- Kolom: `id`, `name`, `email`, `password`, `created_at`, `updated_at`
+
+---
+
 ## Features
 
 -  Register User
