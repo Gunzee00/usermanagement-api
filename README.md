@@ -35,6 +35,9 @@ Mini project RESTful API menggunakan Golang 1.23, PostgreSQL, dan JWT Authentica
 git clone https://github.com/username/usermanagement-api.git
 cd usermanagement-api
 
+
+---
+
 2. Buat file .env
 Buat file .env di root folder:
 DB_USER=user
@@ -44,9 +47,13 @@ DB_HOST=db
 DB_PORT=5432
 JWT_SECRET=rahasia_kamu
 
+---
+
 3. Jalankan Docker
 
 docker-compose up --build
+
+---
 
 ▶️ How to Run It
 API berjalan di: http://localhost:8080
@@ -64,6 +71,8 @@ Body JSON:
   "email": "gunawan@mail.com",
   "password": "password123"
 }
+
+---
 
 2. Login
 Endpoint: POST /login
@@ -85,6 +94,8 @@ Tambahkan token ke header:
 
 Authorization: Bearer <token>
 
+---
+
 3. Get Users (Protected)
 
 Endpoint: GET /users
@@ -92,6 +103,8 @@ Endpoint: GET /users
 Header: 
 
 Authorization: Bearer <token>
+
+---
 
 🐳 Docker Overview
 
@@ -123,6 +136,8 @@ services:
 
 volumes:
   pgdata:
+
+---
 
   🧪 Testing
 Gunakan Postman atau curl untuk menguji setiap endpoint. Tambahkan Authorization token saat mengakses endpoint terproteksi.
