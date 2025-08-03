@@ -4,19 +4,18 @@ Mini project RESTful API menggunakan Golang 1.23, PostgreSQL, dan JWT Authentica
 
 ---
 
-## 🧩 Features
+## Features
 
-- ✅ Register User
-- ✅ Login with JWT
-- ✅ Input Validation (Email & Password)
-- ✅ Password hashing dengan Bcrypt
-- ✅ Protected Routes menggunakan JWT Middleware
-- ✅ Dockerized dengan Alpine 3.20 + PostgreSQL
-- ✅ Clean Architecture
-
+-  Register User
+-  Login with JWT
+-  Input Validation (Email & Password)
+-  Password hashing dengan Bcrypt
+-  Protected Routes menggunakan JWT Middleware
+-  Dockerized dengan Alpine 3.20 + PostgreSQL
+-   
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 
 - Golang 1.23 (Alpine image)
 - PostgreSQL (Docker latest)
@@ -25,45 +24,37 @@ Mini project RESTful API menggunakan Golang 1.23, PostgreSQL, dan JWT Authentica
 - Bcrypt untuk hashing password
 - Validator (`github.com/go-playground/validator/v10`)
 
----
+ 
 
-## 📥 Instalasi
+ ## Instalasi dan Penggunaan
 
----
-
-## 1. Clone repository
-
-
+ 1. Clone repository
+```bash
 git clone https://github.com/username/usermanagement-api.git
 cd usermanagement-api
 
-
----
-
-## 2. Buat file .env
+ 2. Buat file .env
 Buat file .env di root folder:
 DB_USER=user
 DB_PASSWORD=root
 DB_NAME=usermanagement
 DB_HOST=db
 DB_PORT=5432
-JWT_SECRET=rahasia_kamu
+JWT_SECRET=supersecretkey
 
----
 
-## 3. Jalankan Docker
-
+ 3. Jalankan Docker
 docker-compose up --build
 
 ---
 
-## ▶️ How to Run It
+ 4. Port
 API berjalan di: http://localhost:8080
-
 Pastikan tidak ada konflik pada port 8080 dan 5432.
 
-🔑 User Guide
-1. Register
+5. Penggunaan API
+
+A. Register
 Endpoint: POST /register
 
 Body JSON:
@@ -76,7 +67,7 @@ Body JSON:
 
 ---
 
-## 2. Login
+B. Login
 Endpoint: POST /login
 
 Body JSON:
@@ -98,7 +89,7 @@ Authorization: Bearer <token>
 
 ---
 
-## 3. Get Users (Protected)
+ C. Get All Users (Harus menggunakan Token)
 
 Endpoint: GET /users
 
@@ -106,9 +97,61 @@ Header:
 
 Authorization: Bearer <token>
 
+ D. Create Users (Harus menggunakan Token)
+
+Endpoint: POST /api/users
+
+Deskripsi: Menambahkan user baru
+
+Header:
+
+Authorization: Bearer <token>
+
+Body JSON:
+
+{
+  "name": "Gunawan",
+  "email": "gunawan@mail.com",
+  "password": "password123"
+}
+
+ E. Get User by ID (Protected)
+
+Endpoint: GET /api/users/{id}
+
+Deskripsi: Mendapatkan detail user berdasarkan ID
+
+Header:
+Authorization: Bearer <token>
+
+ F. Update User by ID (Protected)
+Endpoint: PUT /api/users/{id}
+
+Deskripsi: Mengupdate data user berdasarkan ID
+
+Header:
+Authorization: Bearer <token>
+
+Body JSON:
+
+{
+  "name": "Gunawan Update",
+  "email": "gunawanupdate@mail.com",
+  "password": "newpassword123"
+}
+
+ G. Delete User by ID (Protected)
+Endpoint: DELETE /api/users/{id}
+
+Deskripsi: Menghapus user berdasarkan ID
+
+Header:
+
+Authorization: Bearer <token>
+
 ---
 
-## 🐳 Docker Overview
+## Docker Overview
 
 Struktur docker-compose.yml
 
@@ -141,6 +184,4 @@ volumes:
 
 ---
 
-  🧪 Testing
-Gunakan Postman atau curl untuk menguji setiap endpoint. Tambahkan Authorization token saat mengakses endpoint terproteksi.
 
