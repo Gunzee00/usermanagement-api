@@ -1,4 +1,4 @@
-# 📦 User Management API
+#  User Management API
 
 Mini project RESTful API menggunakan Golang 1.23, PostgreSQL, dan JWT Authentication, dengan fitur umum seperti register, login, dan CRUD user.
 
@@ -12,7 +12,7 @@ Mini project RESTful API menggunakan Golang 1.23, PostgreSQL, dan JWT Authentica
 -  Password hashing dengan Bcrypt
 -  Protected Routes menggunakan JWT Middleware
 -  Dockerized dengan Alpine 3.20 + PostgreSQL
--   
+  
 ---
 
 ## Tech Stack
@@ -24,12 +24,17 @@ Mini project RESTful API menggunakan Golang 1.23, PostgreSQL, dan JWT Authentica
 - Bcrypt untuk hashing password
 - Validator (`github.com/go-playground/validator/v10`)
 
+ ## Untuk Kolega & Klien
+- Dokumentasi ini mencakup seluruh proses dari instalasi, setup, hingga penggunaan endpoint API.
+- API dapat di-deploy di server manapun berkat dukungan Docker.
+- Dapat dikembangkan lebih lanjut seperti reset password, otorisasi berbasis role, dll.
+- Struktur modular memudahkan pengembangan dan debugging bersama tim.
  
 
  ## Instalasi dan Penggunaan
 
- 1. Clone repository
 ```bash
+ 1. Clone repository
 git clone https://github.com/username/usermanagement-api.git
 cd usermanagement-api
 
@@ -52,7 +57,8 @@ docker-compose up --build
 API berjalan di: http://localhost:8080
 Pastikan tidak ada konflik pada port 8080 dan 5432.
 
-5. Penggunaan API
+----------------------------------------------------------
+ API Endpoint Guide
 
 A. Register
 Endpoint: POST /register
