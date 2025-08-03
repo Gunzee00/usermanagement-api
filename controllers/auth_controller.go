@@ -34,7 +34,6 @@ func Register(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// Hash password
 	hashedPassword, err := bcrypt.GenerateFromPassword([]byte(user.Password), bcrypt.DefaultCost)
 	if err != nil {
 		http.Error(w, "Error hashing password", http.StatusInternalServerError)
@@ -42,7 +41,6 @@ func Register(w http.ResponseWriter, r *http.Request) {
 	}
 	user.Password = string(hashedPassword)
 
-	// Simpan ke database
 	if err := config.DB.Create(&user).Error; err != nil {
 		http.Error(w, "Gagal membuat user", http.StatusInternalServerError)
 		return
@@ -50,8 +48,8 @@ func Register(w http.ResponseWriter, r *http.Request) {
 
 	w.WriteHeader(http.StatusCreated)
 	json.NewEncoder(w).Encode(map[string]interface{}{
-		"message":  "User created successfully",
-		"user":     user, // hashed password ditampilkan untuk keperluan test
+		"message": "User created successfully",
+		"user":    user,
 	})
 }
 
@@ -90,6 +88,4 @@ func Login(w http.ResponseWriter, r *http.Request) {
 		"token":   token,
 	})
 
-	
 }
-

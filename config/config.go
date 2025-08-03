@@ -26,7 +26,7 @@ func ConnectDB() {
 		log.Fatalf("Gagal koneksi database: %v", err)
 	}
 
-	// Auto migrate langsung di sini
+	// Auto migrate
 	err = db.AutoMigrate(&models.User{})
 	if err != nil {
 		log.Fatalf("Gagal migrasi: %v", err)

@@ -6,7 +6,7 @@ import (
 	"github.com/golang-jwt/jwt/v5"
 )
 
-var jwtKey = []byte("secret") // Bisa dipindah ke env
+var jwtKey = []byte("secret") 
 
 func GenerateToken(userID uint) (string, error) {
 	claims := &jwt.RegisteredClaims{

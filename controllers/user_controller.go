@@ -12,14 +12,14 @@ import (
 	"gorm.io/gorm"
 )
 
-// Fungsi bantu untuk validasi email
+// validasi email
 func isValidEmail(email string) bool {
-	// Regex sederhana untuk email
+	
 	re := regexp.MustCompile(`^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$`)
 	return re.MatchString(email)
 }
 
-// CreateUser: Validasi dan simpan user
+// CreateUser
 func CreateUser(w http.ResponseWriter, r *http.Request) {
 	var user models.User
 	if err := json.NewDecoder(r.Body).Decode(&user); err != nil {
@@ -54,7 +54,7 @@ func CreateUser(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(user)
 }
 
-// GetUsers: Ambil semua user
+// GetUsers
 func GetUsers(w http.ResponseWriter, r *http.Request) {
 	var users []models.User
 	if err := config.DB.Find(&users).Error; err != nil {
@@ -65,7 +65,7 @@ func GetUsers(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(users)
 }
 
-// GetUserByID: Ambil user berdasarkan ID
+// GetUserByID
 func GetUserByID(w http.ResponseWriter, r *http.Request) {
 	idStr := mux.Vars(r)["id"]
 	id, err := strconv.Atoi(idStr)
@@ -87,7 +87,7 @@ func GetUserByID(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(user)
 }
 
-// UpdateUser: Update data user
+// UpdateUser
 func UpdateUser(w http.ResponseWriter, r *http.Request) {
 	idStr := mux.Vars(r)["id"]
 	id, err := strconv.Atoi(idStr)
@@ -136,7 +136,7 @@ func UpdateUser(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(user)
 }
 
-// DeleteUser: Hapus user
+// DeleteUser
 func DeleteUser(w http.ResponseWriter, r *http.Request) {
 	idStr := mux.Vars(r)["id"]
 	id, err := strconv.Atoi(idStr)

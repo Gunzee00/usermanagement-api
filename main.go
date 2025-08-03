@@ -10,16 +10,13 @@ import (
 )
 
 func main() {
-	// Koneksi ke database dan simpan di variabel global config.DB
+	
 	config.ConnectDB()
-
-	// Auto migrate model ke database menggunakan koneksi global
 	err := config.DB.AutoMigrate(&models.User{})
 	if err != nil {
 		log.Fatalf("Gagal migrasi: %v", err)
 	}
 
-	// Routing
 	r := routes.SetupRoutes()
 
 	log.Println("Server berjalan di http://localhost:8080")

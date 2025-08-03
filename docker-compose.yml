@@ -9,7 +9,7 @@ services:
     depends_on:
       - db
     env_file:
-      - .env   # ⬅️ Ini bagian penting
+      - .env  
   db:
     image: postgres:latest
     environment:
